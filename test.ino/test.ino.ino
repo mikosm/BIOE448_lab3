@@ -1,32 +1,15 @@
 #include <LiquidCrystal.h>
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-int i = 0;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  lcd.begin(16, 2); //Initiate the LCD in a 16x2 configuration
+  lcd.print("My name is:");
+  lcd.setCursor(0, 1);
+  lcd.print("Gloria");
 }
 
 void loop() {
   // put   your main code here, to run repeatedly:
-  Serial.print("The current loop number is ");
-  Serial.print(i);
-  Serial.print(", which is ");
-  if (isOdd(i)) {
-    Serial.println("odd");
-  }
-  else {
-    Serial.println("even");
-  }
-  delay(500);
-  i++;
-}
-
-void counter(int n) {
-      Serial.print("The current loop number is ");
-      Serial.println(n);
-}
-
-bool isOdd(int n) {
-  return n%2;
+  delay(50); //Wait 50 ms
 }
